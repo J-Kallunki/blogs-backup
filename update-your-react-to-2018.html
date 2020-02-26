@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Enable zoom. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- First page desciption then website name -->
+    <title>How to use semantic HTML in Web Apps</title>
+    <style>body {padding: .5rem 2rem;} img {max-width: 100%; height: auto;} main {max-width: 600px;}</style>
+  </head>
+  <body>
+    <header>
+      <p class="title">Gofore Blog • 13.09.2018</p>
+      <h1>Update your React development basics to 2018</h1>
+    </header>
+    <main tabindex="-1" id="main">
+
+
+        <p>Modern JavaScript is self documenting. So remember to write the code for humans. Keep it simple. I suggest also keeping structural conventions organised&nbsp;around the project.&nbsp;JavaScript version ES6, React 16 and Babel (also new version 7) can help us a bit with these.<br>
+The React API is simple, but, from time to time you should return to the official React docs that are updated with new features and with validated ways of using them. Like this nice example of Async Refs:&nbsp;<a class="external-link" href="https://reactjs.org/docs/refs-and-the-dom.html#callback-refs" rel="nofollow">https://reactjs.org/docs/refs-and-the-dom.html#callback-refs</a><br>
+But if you have really hit the stage where your code becomes more of a legacy and not ready to be updated to a newer React version, my suggestion for you is to head to Frontend Masters. It has modern but easily&nbsp;approachable&nbsp;video courses, all available by a monthly subscription. You really should check them out:&nbsp;<a class="external-link" href="https://frontendmasters.com/" rel="nofollow">https://frontendmasters.com/</a></p>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-UIwithcomponents" class="p1">UI with components</h3>
+<p class="p1">Create components in a&nbsp;<a class="external-link" href="https://en.wikipedia.org/wiki/Declarative_programming" rel="nofollow">declarative&nbsp;manner</a>&nbsp;so that the person using it doesn’t need to think about how it does everything it implements. With the React API itself, you can declaratively compose the UI. Just aim for a developer-friendly component interface that allows developers to compose your components easily.&nbsp;Remember that good abstractions make it easy to add code and behaviour, but really good abstractions make it easy to remove code and behaviour.</p>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Learndestructuring" class="p1">Learn destructuring</h3>
+<p class="p1">One of the best places to get detailed information about JavaScript, ES6 and browser support (without babel or polyfilling) is&nbsp;<a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" rel="nofollow">Mozilla developer Web docs</a>. So learn the basics of destructuring from here&nbsp;&nbsp;<a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment" rel="nofollow">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment</a></p>
+<p class="p1">Instead of:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_383586" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">(Props) =&gt; {…}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p class="p1">Destructure:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_747254" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">({</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">disabled,</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">title =&nbsp;</code><code class="java string">'Default title'</code><code class="java plain">,</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">name: renamedNameProp,</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">component: RenamedComponent = DefaultComponent,</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">header: {title: headerTitle},</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">menu: {menuClosed, selectedItem: {name: menuSelectedItemdName}},</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">arr: [arrFirstValue, arrSecondValue, arrThirdValue],</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">[keyNameAsStringVariable]: keyNewName,</code></div>
+<div class="line number10 index9 alt1"><code class="java plain">} = {}) =&gt; {…}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p class="p1">Or:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_826867" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">{disabled, title =&nbsp;</code><code class="java string">'Default title'</code><code class="java plain">, etc...} = props;&nbsp;</code><code class="java comments">//Or this.props</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Goingthroughobjectkeysandvalues" class="p1">Going through object keys and values</h3>
+<p class="p1">The other important things that I take as basic knowledge for modern JavaScript&nbsp;are ES6 array methods. If you are not familiar with them, you might want to start from here&nbsp;<a class="external-link" href="https://gofore.com/en/must-learn-javascript-array-methods-that-will-help-you-become-a-better-coder/" rel="nofollow">https://gofore.com/en/must-learn-javascript-array-methods-that-will-help-you-become-a-better-coder/</a></p>
+<p class="p1">Although Array.map is one of the most used ones – and for valid reasons – I still prefer&nbsp;the more powerful Array.reduce. (And map is just one implementation of reduce).</p>
+<p class="p1">Example:&nbsp;Go through an object (key-value pairs) and check condition for each key to either return a new modified value or the original value.</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_614551" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">Object.entries(state)</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">.reduce((newState, [key, value]) =&gt; (</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">...newState,</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">[key]: checkCondition(key) ? modifyValue(value) : value</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">), {})</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p id="UpdateyourReactdevelopmentbasicsto2018-Arrayfunctionscanalsobeusedforjusttoclearyourcode:" class="auto-cursor-target"><strong>Array functions can also be used for just to clear your code:</strong></p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_313189" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">return</code>&nbsp;<code class="java plain">[changes]</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">.map(c =&gt; typeof c ===&nbsp;</code><code class="java string">'function'</code>&nbsp;<code class="java plain">? c(currentState) : c)</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">.map(c =&gt;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.props.stateReducer(currentState, c) || {})</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">.map(c =&gt; Object.keys(c).length ? c :&nbsp;</code><code class="java keyword">null</code><code class="java plain">)[</code><code class="java value">0</code><code class="java plain">];</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 class="auto-cursor-target">Public class fields</h3>
+<p>Babel will transpile your code and add a constructor for you behind the scenes. As described here&nbsp;<a class="external-link" href="https://hackernoon.com/the-constructor-is-dead-long-live-the-constructor-c10871bea599" rel="nofollow">https://hackernoon.com/the-constructor-is-dead-long-live-the-constructor-c10871bea599</a><br>
+So instead of this:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_429200" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">class</code>&nbsp;<code class="java plain">Button&nbsp;</code><code class="java keyword">extends</code>&nbsp;<code class="java plain">Component {</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">constructor(props) {</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">super</code><code class="java plain">(props);</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.state = { type: buttonType.</code><code class="java keyword">default</code>&nbsp;<code class="java plain">};</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.handleClick =&nbsp;</code><code class="java keyword">this</code><code class="java plain">.handleClick.bind(</code><code class="java keyword">this</code><code class="java plain">);</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number7 index6 alt2"></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">handleClick() {...}</code></div>
+<div class="line number9 index8 alt2"></div>
+<div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">render() {</code></div>
+<div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code><code class="java plain">(...);</code></div>
+<div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number13 index12 alt2"><code class="java plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>Write this:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_612888" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">class</code>&nbsp;<code class="java plain">Button&nbsp;</code><code class="java keyword">extends</code>&nbsp;<code class="java plain">Component {</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">state = { type: buttonType.</code><code class="java keyword">default</code>&nbsp;<code class="java plain">}</code></div>
+<div class="line number3 index2 alt2"></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">handleClick = () =&gt; {...}</code></div>
+<div class="line number5 index4 alt2"></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">render() {</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code><code class="java plain">(...);</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number9 index8 alt2"><code class="java plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Statechangeswithhigherorderfunctions" class="p1">State changes with higher order functions</h3>
+<p><strong>Note: State updates may be asynchronous by&nbsp;batching multiple setState() calls into a single update for performance:</strong>&nbsp;<a class="external-link" href="https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous" rel="nofollow">https://reactjs.org/docs/state-and-lifecycle.html#state-updates-may-be-asynchronous</a><br>
+If you know how to use higher order functions, here’s a really neat example to get you going also with React:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_413987" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">makeUpdater = apply =&gt; key =&gt; state =&gt; ({[key]: apply(state[key])});</code></div>
+<div class="line number2 index1 alt1"></div>
+<div class="line number3 index2 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">toggleKey = makeUpdater(previous =&gt; !previous);</code></div>
+<div class="line number4 index3 alt1"><code class="java keyword">const</code>&nbsp;<code class="java plain">incrementKey = makeUpdater(previous =&gt; previous +&nbsp;</code><code class="java value">1</code><code class="java plain">);</code></div>
+<div class="line number5 index4 alt2"></div>
+<div class="line number6 index5 alt1"><code class="java keyword">this</code><code class="java plain">.setState(toggleKey(</code><code class="java string">'openMenu'</code><code class="java plain">));</code></div>
+<div class="line number7 index6 alt2"><code class="java keyword">this</code><code class="java plain">.setState(incrementKey(</code><code class="java string">'clickCounter'</code><code class="java plain">));</code></div>
+<div class="line number8 index7 alt1"></div>
+<div class="line number9 index8 alt2"><code class="java comments">// Or the same without makeUpdater</code></div>
+<div class="line number10 index9 alt1"><code class="java keyword">const</code>&nbsp;<code class="java plain">toggleKey = key =&gt; state =&gt; ({[key] : !state[key]});</code></div>
+<div class="line number11 index10 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">incrementKey = key =&gt; state =&gt; ({[key] : state[key] +&nbsp;</code><code class="java value">1</code><code class="java plain">});</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<p>If this is is something totally new for you I can recommend these video tutorials by&nbsp;<a class="external-link" href="https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q" rel="nofollow">Fun Fun Function</a>. Here are a few to get you started:<br>
+Higher-order functions:&nbsp;&nbsp;<a class="external-link" href="https://www.youtube.com/watch?v=BMUiFMZr7vk" rel="nofollow">https://www.youtube.com/watch?v=BMUiFMZr7vk</a><br>
+Currying:&nbsp;<a class="external-link" href="https://www.youtube.com/watch?v=iZLP4qOwY8I" rel="nofollow">https://www.youtube.com/watch?v=iZLP4qOwY8I</a></p>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-DeprecatedcomponentWillReceiveProps!">Deprecated componentWillReceiveProps!</h3>
+<p>ComponentWillReceiveProps has been deprecated and you should update their usage to componentDidUpdate. It will stop working at React 17. Read more about this and other (componentWillMount, componentWillUpdate) now legacy lifecycle methods from official React docs:&nbsp;<a class="external-link" href="https://reactjs.org/docs/react-component.html#legacy-lifecycle-methods" rel="nofollow">https://reactjs.org/docs/react-component.html#legacy-lifecycle-methods</a><br>
+Example for refactoring:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_986257" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">componentWillReceiveProps(nextProps) {</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java keyword">if</code>&nbsp;<code class="java plain">(nextProps.id !==&nbsp;</code><code class="java keyword">this</code><code class="java plain">.props.id) {</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.fetch(nextProps);</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number5 index4 alt2"><code class="java plain">}</code></div>
+<div class="line number6 index5 alt1"><code class="java comments">// replace with:</code></div>
+<div class="line number7 index6 alt2"><code class="java plain">componentDidUpdate(prevProps) {</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java keyword">if</code>&nbsp;<code class="java plain">(</code><code class="java keyword">this</code><code class="java plain">.props.id !== prevProps.id) {</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.fetch();</code></div>
+<div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number11 index10 alt2"><code class="java plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-InspecttheDOMrightbeforerenderupdatesit(React16.3)">Inspect the DOM right before render updates it (React 16.3)</h3>
+<p>Read the current DOM state right before the changes from VDOM are to be reflected in the DOM. It can be done using&nbsp;getSnapshotBeforeUpdate lifecycle method.<br>
+Example: Before the component gets a new render, detect if the user hasn’t scrolled the scrollbar all the way to the bottom.</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_616000" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java plain">getSnapshotBeforeUpdate() {</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java keyword">const</code>&nbsp;<code class="java plain">{ clientHeight, scrollTop, scrollHeight } = document.documentElement;</code></div>
+<div class="line number3 index2 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java keyword">return</code>&nbsp;<code class="java plain">{ scrollNotBottom: clientHeight + scrollTop &lt; scrollHeight }</code></div>
+<div class="line number4 index3 alt1"><code class="java plain">}</code></div>
+<div class="line number5 index4 alt2"></div>
+<div class="line number6 index5 alt1"><code class="java plain">componentDidUpdate(prevProps, prevState, snapshot) {</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java keyword">const</code>&nbsp;<code class="java plain">{ scrollNotBottom } = snapshot;</code></div>
+<div class="line number8 index7 alt1"><code class="java plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Fragmentorarray(React16.2)">Fragment or array (React 16.2)</h3>
+<p>Keep semantics clear. Don’t add unnecessary elements that just increase complexity (and complicate your CSS). Instead of adding extra&nbsp;wrappers (like &lt;div&gt;’s) now you can also return a Fragment or an array.</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_788248" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">import</code>&nbsp;<code class="java plain">React, { Component, Fragment } from&nbsp;</code><code class="java string">'React'</code><code class="java plain">;</code></div>
+<div class="line number2 index1 alt1"></div>
+<div class="line number3 index2 alt2"><code class="java keyword">return</code>&nbsp;<code class="java plain">(</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;Fragment&gt;</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code><code class="java keyword">this</code><code class="java plain">.props.title} {</code><code class="java keyword">this</code><code class="java plain">.state.count}</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;p&gt;{descriptions.map((desc, i) =&gt;</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;Fragment key={i}&gt;{i &gt;&nbsp;</code><code class="java value">0</code>&nbsp;<code class="java plain">&amp;&amp;&nbsp;</code><code class="java string">', '</code><code class="java plain">}{desc}&lt;/Fragment&gt;</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">)}&lt;/p&gt;</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;/Fragment&gt;</code></div>
+<div class="line number10 index9 alt1"><code class="java plain">);</code></div>
+<div class="line number11 index10 alt2"></div>
+<div class="line number12 index11 alt1"><code class="java keyword">return</code>&nbsp;<code class="java plain">(</code></div>
+<div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;&gt;</code></div>
+<div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code><code class="java keyword">this</code><code class="java plain">.props.title} {</code><code class="java keyword">this</code><code class="java plain">.state.count}</code></div>
+<div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;p&gt;{descriptions.map((desc, i) =&gt;</code></div>
+<div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;Fragment key={i}&gt;{i &gt;&nbsp;</code><code class="java value">0</code>&nbsp;<code class="java plain">&amp;&amp;&nbsp;</code><code class="java string">', '</code><code class="java plain">}{desc}&lt;/Fragment&gt;</code></div>
+<div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">)}&lt;/p&gt;</code></div>
+<div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;/&gt;</code></div>
+<div class="line number19 index18 alt2"><code class="java plain">);</code></div>
+<div class="line number20 index19 alt1"></div>
+<div class="line number21 index20 alt2"><code class="java keyword">return</code>&nbsp;<code class="java plain">[</code></div>
+<div class="line number22 index21 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">{&nbsp;</code><code class="java keyword">this</code><code class="java plain">.props.title },</code></div>
+<div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">{&nbsp;</code><code class="java keyword">this</code><code class="java plain">.state.count },</code></div>
+<div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;p&gt;{descriptions.map(desc =&gt; i &gt;&nbsp;</code><code class="java value">0</code>&nbsp;<code class="java plain">? `, ${desc}` : desc)}&lt;/p&gt;</code></div>
+<div class="line number25 index24 alt2"><code class="java plain">];</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-ErrorBoundary(React16.0)" class="p1">ErrorBoundary (React 16.0)</h3>
+<p>Create ErrorBoundary component and log your errors. Introduced at the React official docs:&nbsp;<a class="external-link" href="https://reactjs.org/docs/error-boundaries.html" rel="nofollow">https://reactjs.org/docs/error-boundaries.html</a></p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_462342" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">logError = (error, info) =&gt; ...</code></div>
+<div class="line number2 index1 alt1"></div>
+<div class="line number3 index2 alt2"><code class="java keyword">class</code>&nbsp;<code class="java plain">ErrorBoundary&nbsp;</code><code class="java keyword">extends</code>&nbsp;<code class="java plain">React.Component {</code></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">state = {</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">hasError:&nbsp;</code><code class="java keyword">false</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number7 index6 alt2"></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">componentDidCatch(error, info) {</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">logError(error, info)</code></div>
+<div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.setState({ hasError:&nbsp;</code><code class="java keyword">true</code>&nbsp;<code class="java plain">});</code></div>
+<div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number12 index11 alt1"></div>
+<div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">render() {</code></div>
+<div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code>&nbsp;<code class="java keyword">this</code><code class="java plain">.state.hasError</code></div>
+<div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">?&nbsp;</code><code class="java keyword">this</code><code class="java plain">.props.fallbackComponent</code></div>
+<div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">:&nbsp;</code><code class="java keyword">this</code><code class="java plain">.props.children;</code></div>
+<div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number18 index17 alt1"><code class="java plain">}</code></div>
+<div class="line number19 index18 alt2"></div>
+<div class="line number20 index19 alt1"><code class="java plain">&lt;ErrorBoundary fallbackComponent={IHasErrorHere}&gt;</code></div>
+<div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;HereMyComponent /&gt;</code></div>
+<div class="line number22 index21 alt1"><code class="java plain">&lt;/ErrorBoundary&gt;</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Compoundcomponents,renderprop,higherordercomponents">Compound components, render prop, higher order components</h3>
+<p>A modern React developer should also learn how to make compound components, render prop, higher order components and other fancy patterns. Here’s a really good post briefly explaining them:&nbsp;<a class="external-link" href="https://blog.kentcdodds.com/mixing-component-patterns-4328f1e26bb5" rel="nofollow">https://blog.kentcdodds.com/mixing-component-patterns-4328f1e26bb5</a><br>
+Example: Figure out how much the document is scrolled vertically and pass it to a CSS custom property.</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_652082" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">class</code>&nbsp;<code class="java plain">ScrollY&nbsp;</code><code class="java keyword">extends</code>&nbsp;<code class="java plain">Component {</code></div>
+<div class="line number2 index1 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">state = { y:&nbsp;</code><code class="java value">0</code>&nbsp;<code class="java plain">}</code></div>
+<div class="line number3 index2 alt2"></div>
+<div class="line number4 index3 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">handleWindowScroll = () =&gt; {</code></div>
+<div class="line number5 index4 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.setState({ y:&nbsp; Math.round(window.scrollY) });</code></div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number7 index6 alt2"></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">componentDidMount() {</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.handleWindowScroll();</code></div>
+<div class="line number10 index9 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">window.addEventListener(</code><code class="java string">'scroll'</code><code class="java plain">,&nbsp;</code><code class="java keyword">this</code><code class="java plain">.handleWindowScroll);</code></div>
+<div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number12 index11 alt1"></div>
+<div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">componentWillUnmount() {</code></div>
+<div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">window.removeEventListener(</code><code class="java string">'scroll'</code><code class="java plain">,&nbsp;</code><code class="java keyword">this</code><code class="java plain">.handleWindowScroll);</code></div>
+<div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number16 index15 alt1"></div>
+<div class="line number17 index16 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">render() {</code></div>
+<div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">return</code>&nbsp;<code class="java keyword">this</code><code class="java plain">.props.render(</code><code class="java keyword">this</code><code class="java plain">.state.y);</code></div>
+<div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number20 index19 alt1"><code class="java plain">}</code></div>
+<div class="line number21 index20 alt2"></div>
+<div class="line number22 index21 alt1"><code class="java comments">// Usage</code></div>
+<div class="line number23 index22 alt2"><code class="java plain">&lt;div className=</code><code class="java string">"app"</code><code class="java plain">&gt;</code></div>
+<div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">&lt;ScrollY render={y =&gt;</code></div>
+<div class="line number25 index24 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;div style={{&nbsp;</code><code class="java string">'--scroll-y'</code><code class="java plain">: y }}&gt;</code></div>
+<div class="line number26 index25 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;p&gt;Here some&nbsp;</code><code class="java keyword">long</code>&nbsp;<code class="java plain">scrollable content&lt;/p&gt;</code></div>
+<div class="line number27 index26 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">&lt;/div&gt;</code></div>
+<div class="line number28 index27 alt1"><code class="java spaces">&nbsp;&nbsp;</code><code class="java plain">} /&gt;</code></div>
+<div class="line number29 index28 alt2"><code class="java plain">&lt;/div&gt;</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<h3 id="UpdateyourReactdevelopmentbasicsto2018-Experimentalbonus:optionalchaining(withBabel7)" class="p1">Experimental bonus: optional chaining (with Babel 7)</h3>
+<p>Babel 7 has a new plugin called&nbsp;<a class="external-link" href="https://babeljs.io/docs/en/next/babel-plugin-proposal-optional-chaining.html" rel="nofollow">babel-plugin-transform-optional-chaining</a>&nbsp;that is based on&nbsp;<a class="external-link" href="https://github.com/tc39/proposal-optional-chaining" rel="nofollow">ECMAScript&nbsp;TC39 proposal</a>. Now instead of checking for null or undefined of every nested object separately, you can just chain them like this:</p>
+<div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code">
+<div class="codeContent panelContent pdl">
+<div>
+<div id="highlighter_840066" class="syntaxhighlighter sh-confluence nogutter java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container" title="Hint: double-click to select code">
+<div class="line number1 index0 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">baz = obj?.foo?.bar?.baz;</code></div>
+<div class="line number2 index1 alt1"><code class="java keyword">const</code>&nbsp;<code class="java plain">fromArray = state?.team?.users?.[</code><code class="java value">0</code><code class="java plain">];</code></div>
+<div class="line number3 index2 alt2"><code class="java keyword">const</code>&nbsp;<code class="java plain">func = state?.user?.getAge?.();</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+    </main>
+  </body>
+</html>

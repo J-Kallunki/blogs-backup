@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Enable zoom. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- First page desciption then website name -->
+    <title>How to use semantic HTML in Web Apps</title>
+    <style>body {padding: .5rem 2rem;} main {max-width: 600px;}</style>
+  </head>
+  <body>
+    <header>
+      <p class="title">Gofore Blog • 22.08.2019</p>
+      <h1>How to use semantic HTML in Web Apps</h1>
+    </header>
+    <main tabindex="-1" id="main">
+
+        <p><a class="external-link" href="we-broke-the-internet-so-heres-how-to-start-fixing-it.html" rel="nofollow">Previously I wrote about why we need to use semantic HTML</a>. Now, most of the internet services we are developing are no longer just webpages, but dynamically structured Web Apps*. Still, those apps use HTML and CSS for user interfaces in the browser. Below I have outlined my heavily opinionated conventions on this matter at this particular moment in time.<br>
+<em>* As I see it, we should think about the term “Web App” as constantly evolving ideas and technologies for services running in a browser.</em></p>
+<p>It might not be a good way to design a component – and overall the collection of your components – based on the semantic HTML structure. You should be more focused on designing the component API* and hide the complexity of each solution behind an abstraction. If you feel that you spend more time designing the specifications for component usage than creating simple implementations in the component itself, you could be on the right track. Overall spending time in the configuration of your project and component-libraries (after the initial POC**), is very healthy if it saves you time and complexity when creating and maintaining the main source code itself.<br>
+<em>*&nbsp;<a class="external-link" href="https://jxnblk.com/blog/defining-component-apis-in-react/" rel="nofollow">Defining Component APIs in React, Brent Jackson</a></em><br>
+<em>**&nbsp;<a class="external-link" href="https://medium.com/studio-zero/spikes-pocs-prototypes-and-the-mvp-5cdffa1b7367" rel="nofollow">Spikes, POCs, Prototypes and the MVP, Leigh Garland</a></em></p>
+<p>I admit that it is also a bit harmful to the developer ecosystems to hide basic HTML semantic and basic accessibility implementations behind abstractions. But would you rather your app has a solid foundation for the client or has more mistakes that end up in production for everyone to learn from?</p>
+<p>This leads me to ponder, can someone be a fullstack developer without an understanding of basic HTML semantics? There are people titled as fullstack developers maintaining frontend code without much knowledge of the DOM API* or modern JavaScript**. To make sure your UI component (and library of components or the complete app) is going to be accessible, your implementations should take responsibility, not the interface. When your component’s interface is really good, you can fix and change the implementation without modifications to the interface. So actually your component’s first version doesn’t need to be the most accessible version. You can pass it on for validation and testing – even for usage at development stages. And during the upcoming iterations, you have the chance to implement more detailed accessibility.<br>
+<em>*&nbsp;<a class="external-link" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" rel="nofollow">Document Object Model (DOM), MDN Web Docs</a></em><br>
+<em>**&nbsp;<a class="external-link" href="https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84" rel="nofollow">Functional programming in JavaScript, Fun Fun Function, Mattias Petter Johansson</a></em></p>
+<h3 id="HowtousesemanticHTMLinWebApps-Whatyouseeisnotwhatyouget">What you see is not what you get</h3>
+<p>At the current moment you cannot rely on libraries and frameworks to handle your app’s accessibility. There are a few accessibility-centered user interface libraries, but their implementations are also based on opinions. The basic HTML5 semantics are standard and have good support with browsers, but with screen readers (or other less common tools) you might feel like you’re developing websites to support IE6 all over again.<br>
+Use coding frameworks mainly for their designed abstractions – not so much to generate imperative source for UI. Return components with fragments, arrays or other variables (based on the API of the library you are using) when no semantic structure is needed – and non-semantic HTML structure only when needed for visual layout and styling.</p>
+<h3 id="HowtousesemanticHTMLinWebApps-Testingwithtools">Testing with tools</h3>
+<p>Only about 30-40% of accessibility issues are found by automated testing. Still using tools for accessibility testing is a good way to prevent some of the errors and educate developers what and why to improve. Some great tools I can recommend are&nbsp;<a class="external-link" href="https://www.deque.com/axe/" rel="nofollow">Axe</a>&nbsp;(<a class="external-link" href="https://github.com/nickcolley/jest-axe" rel="nofollow">Jest-axe</a>&nbsp;and&nbsp;<a class="external-link" href="https://github.com/dequelabs/react-axe" rel="nofollow">React-axe</a>),&nbsp;<a class="external-link" href="https://developers.google.com/web/tools/lighthouse/" rel="nofollow">Lighthouse</a>&nbsp;and&nbsp;<a class="external-link" href="https://accessibilityinsights.io/" rel="nofollow">Accessibility Insights</a>. Also you can learn manual testing by using a screen reader like&nbsp;<a class="external-link" href="https://www.apple.com/lae/accessibility/" rel="nofollow">VoiceOver (macOS, iOS)</a>&nbsp;or&nbsp;<a class="external-link" href="https://www.nvaccess.org/about-nvda/" rel="nofollow">NVDA (Windows)</a>.&nbsp;Some accessibility testing can also be done with design tools using a plugin like&nbsp;<a class="external-link" href="https://www.getstark.co/" rel="nofollow">Stark (Adobe XD, Figma, Sketch)</a>.</p>
+<h3 id="HowtousesemanticHTMLinWebApps-Takingstepsforward">Taking steps forward – To fix this:<img loading="lazy" class="alignnone wp-image-44203 lazyloaded" src="img/semantics-1.png" alt="semantics" width="780" height="741" data-lazy-src="img/semantics-1.png" data-was-processed="true"><noscript><img class="alignnone wp-image-44203" src="img/semantics-1.png" alt="semantics" width="780" height="741" /></noscript></h3>
+<ul>
+<li>Use HTML5 DOCTYPE declaration.</li>
+<li>The primary language of content must be identified accurately on the html-element.</li>
+<li>If your page title contains unique information about the current view, it should come first. The title should be consistent with the main content. The title must be updated when the url-path changes.</li>
+<li>If you have a lot of content in the page before the main-content, add a ‘Skip to main content’-link that can be hidden when not focused with the keyboard (<a class="external-link" href="https://axesslab.com/skip-links/" rel="nofollow">https://axesslab.com/skip-links/</a>).</li>
+<li>Replace divs with HTML5 semantic tags. All elements’ ID’s should be unique – use CSS classes for styling.</li>
+<li>All text should be contained within a landmark region (header, nav, main, footer, aside etc.). Use minimum instances of landmarks.</li>
+<li>Use list elements for lists.</li>
+<li>If you use link-tags for your navigation – not buttons – screen readers can get to your navigation by browsing all links on the page. (This is an exception to the rule that buttons should be used when a user action changes view within the app)</li>
+<li>Use heading levels correctly, do not skip levels (for example from h1 to h3). Each view should have only one h1. Screen readers are also using headings to navigate through the page.</li>
+<li>Use CSS for visual styling.</li>
+</ul>
+<p><img loading="lazy" class="alignnone wp-image-44204 lazyloaded" src="img/semantics-1-res.png" alt="semantics 2" width="781" height="894" data-lazy-src="img/semantics-1-res.png" data-was-processed="true"><noscript><img class="alignnone wp-image-44204" src="img/semantics-1-res.png" alt="semantics 2" width="781" height="894" /></noscript></p>
+<h3 id="HowtousesemanticHTMLinWebApps-Andtofixthisusingalsoaria-attributes*:">And to fix this using aria-attributes*:</h3>
+<p><em>*&nbsp;<a class="external-link" href="https://www.a11ywithlindsey.com/blog/beginning-demystify-aria" rel="nofollow">ARIA is not a&nbsp;replacement for semantic HTML</a></em><br>
+<img loading="lazy" class="alignnone wp-image-44206 lazyloaded" src="img/semantics-2.png" alt="semantics 2a" width="781" height="534" data-lazy-src="img/semantics-2.png" data-was-processed="true"><noscript><img class="alignnone wp-image-44206" src="img/semantics-2.png" alt="semantics 2a" width="781" height="534" /></noscript></p>
+<ul>
+<li>If you disable focus outline provide an alternative working solution, do not completely disable :focus styles.</li>
+<li>Use CSS-classes for visual styling.</li>
+<li>Use label with for-attribute with the correct id-attribute in the input-element. Id’s should be unique within the rendered HTML page.</li>
+<li>Use aria-hidden for visually displaying information that is already defined by aria.</li>
+<li>Use buttons for user actions, not clickable divs. Buttons can have proper type-attribute.</li>
+<li>Use Aria-required and HTML5 required -attributes. Most current web browsers automatically set the aria-required value to true when the HTML5 required attribute is present.</li>
+<li>Submit button is disabled when required inputs are empty or invalid. Change disabled to false when corrected.</li>
+<li>Submit button has aria-label (SVG-icon for visual presentation) and assertive text describing why it is disabled.</li>
+<li>Visually placed error-texts are hidden from a screen reader.&nbsp;If you don’t need to support IE-era browsers you can also more safely use an aria-label instead.</li>
+</ul>
+<p><img loading="lazy" class="alignnone wp-image-44207 lazyloaded" src="img/semantics-2-res.png" alt="semantics 3" width="777" height="876" data-lazy-src="img/semantics-2-res.png" data-was-processed="true"><noscript><img class="alignnone wp-image-44207" src="img/semantics-2-res.png" alt="semantics 3" width="777" height="876" /></noscript></p>
+
+    </main>
+  </body>
+</html>
